@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Quick Wiki</title>
+      <!--  -->
+      <script
+         src="https://code.jquery.com/jquery-1.12.4.js"
+         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+         crossorigin="anonymous"></script>
+      <link
+         rel="stylesheet"
+         href="http://code.jquery.com/ui/1.9.0/themes/smoothness/jquery-ui.css" />
+      <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/black-tie/theme.min.css"></script>
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <!--  -->
+      <script src = "script.js"></script>
+      <link rel = "stylesheet" href = "styles.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+      <!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+      <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+   </head>
+   <body>
+      <div class="header">
+         <center>
+            <h1>QUICK WIKI</h1>
+         </center>
+      </div>
+      <center>
+         <div>
+            <form action="#">
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="search_box">
+                  <!-- <input id="myText" /> -->
+                  <div class="box">
+                     <label id="search_text" class="mdl-textfield__label" for="sample3">Enter Text Here</label>
+                     <button id="cancel_btn" class="mdl-button mdl-js-button mdl-button--icon" type="reset">
+                     <i  class="material-icons">clear</i>
+                     </button>
+                  </div>
+               </div>
+         </div>
+         <div id="search_button">
+         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" onclick="search()"><i class="material-icons"> search</i> Search</button>
+         </div>
+         </form>
+      </center>
+      <!--  -->
+      <!--  -->
+      <div id = "result"></div>
+      </div>
+   </body>
+</html>

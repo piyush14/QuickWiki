@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+       <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+
+function myFunction(data){
+  document.getElementById('myList').innerHTML = "";
+  var arrayA = [];
+var temp = new Array();
+   var node = document.createElement("LI");
+  var i=0;
+  var d = data.toString();
+  // console.log("*************"+data);
+  // console.log(d.split(","));
+    var t = d.split(",");
+    temp = d.split(",");
+    // console.log(t);
+    console.log(temp);
+    arrayA.push(t);
+    while(i<10){
+      var br = document.createElement("br");
+        var opt = document.createElement("option");
+
+      var textnode = document.createTextNode(temp[i++]);
+
+
+    node.appendChild(textnode);
+    node.appendChild(br);
+
+
+    opt.setAttribute("value",textnode);
+
+    $('#languages').append(opt);
+
+    document.getElementById("myList").appendChild(node);
+    }
+  // console.log(typeof arrayA);
+  // console.log(arrayA);
+	// document.getElementById('output').innerHTML = data;
+}
+
+
+var myScript = '';
+function init(){
+
+var searchB = document.getElementById('searchbox');
+searchB.onkeyup = function(){
+
+	var stuff_in_text_box = document.getElementById('searchbox').value;
+	myScript = document.createElement('script');
+
+
+	myScript.src = 'http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=myFunction&search='+stuff_in_text_box;
+  // console.log(myScript);
+	document.body.appendChild(myScript);
+};
+}
+window.onload = init;
+</script>
+  </head>
+  <body>
+      <input type="text" list="languages">
+    <datalist id="languages">
+  <option value="HTML">
+</datalist>
+
+    <input type="text" id="searchbox">
+<div id="output"></div>
+<ul id="myList">
+  <li></li>
+</ul>
+  </body>
+</html>

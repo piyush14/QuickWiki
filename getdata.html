@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+       <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  </head>
+  <script type="text/javascript">
+  var searchURL = "http://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&search=mumbai";
+  $.getJSON(searchURL ,function(data) {
+        $.each(data, function(i, item){});
+  });
+  </script>
+  <body>
+
+  </body>
+</html>

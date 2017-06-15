@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery UI Autocomplete Remote DataSource</title>
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+    <link
+     rel="stylesheet"
+     href="http://code.jquery.com/ui/1.9.0/themes/smoothness/jquery-ui.css" />
+    <style type="text/css">
+        .ui-helper-hidden-accessible { position: absolute; left: -9999px; }
+    </style>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/black-tie/theme.min.css"></script>
+    <script type="text/javascript">
+
+    var temp = new Array();
+
+        $(function () {
+          console.log("-----------------------------------");
+            document.getElementById('myText').innerHTML = "";
+            var getData = function (request, response) {
+                 console.log("here");
+                $.getJSON(
+
+                //    "http://gd.geobytes.com/AutoCompleteCity?callback=?&q=" + request.term,
+                    "https://en.wikipedia.org/w/api.php?action=opensearch&limit=10&format=json&callback=?&search=" + request.term,
+                    function (data) {
+                          var d = data.toString();
+                          temp = d.split(",");
+                          console.log(temp);
+                          response(temp);
+                    });
+            };
+
+            var selectItem = function (event, ui) {
+                $("#myText").val(ui.item.value);
+            }
+
+            $("#myText").autocomplete({
+                source: getData,
+                select: selectItem,
+                minLength: 3
+            });
+        });
+
+        function checkValue(){
+          console.log(document.getElementById('myText').value);
+        }
+    </script>
+</head>
+<body>
+      <input id="myText" />
+      <button type="button" name="button" value="check" onclick="checkValue()">check</button>
+</body>
+</html>
